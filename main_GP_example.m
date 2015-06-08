@@ -16,7 +16,7 @@ sig_w2 = 1e-5; % small number to avoid numerical problem
 covfunc2 = {'covSum', {'covSEard','covNoise'}};
 loghyper2 = [log(Psi2(1));log(Psi2(2));log(Psi2(3));log(sig_w2)];
 
-num_grid = 51;
+num_grid = 31;
 XMIN = -15; XMAX = 15;
 YMIN = -15; YMAX = 15;
 x_mesh = linspace(XMIN,XMAX,num_grid)';
@@ -120,5 +120,8 @@ imagesc(x_mesh,y_mesh,est_field2);
 hold on
 plot(sample_loc2(:,1),sample_loc2(:,2),'kx');
 
+figure('name','vector field')
+quiver(S1,S2,est_field1,est_field2);
+axis tight
 
 
